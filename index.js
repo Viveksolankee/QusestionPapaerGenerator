@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const PORT = 5000; // Define your port
-const questions = require('./db.json'); // Load questions from JSON file
+const questions = require('./db.json');
 
 
 app.get('/api/questions', (req, res) => {
@@ -11,9 +11,10 @@ app.get('/api/questions', (req, res) => {
     const  hard  = req.query.hardPercentage;
 
     // Calculate the number of questions for each difficulty based on the total marks
-    var easyQuestions = Math.floor((parseInt(totalMarks) * easy) / 5); // Assuming each easy question is 5 marks
-    var mediumQuestions = Math.floor((parseInt(totalMarks) * medium) / 10); // Assuming each medium question is 10 marks
-    var hardQuestions = Math.floor((parseInt(totalMarks) * hard) / 15); // Assuming each hard question is 15 marks
+    var easyQuestions = Math.floor((parseInt(totalMarks) * easy) / 5); 
+    var mediumQuestions = Math.floor((parseInt(totalMarks) * medium) / 10); 
+    var hardQuestions = Math.floor((parseInt(totalMarks) * hard) / 15); 
+
     // Filter questions based on the calculated number for each difficulty
     const filteredQuestions = questions.filter(q => {
       if (q.difficulty === 'Easy' && easyQuestions > 0) {
