@@ -1,0 +1,101 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Question Paper Generator</title>
+</head>
+<body>
+  <h1>Question Paper Generator</h1>
+  <div>
+    <label for="difficultyInput">Enter Difficulty:</label>
+    <input type="text" id="difficultyInput">
+    <button onclick="fetchQuestions()">Get Questions</button>
+  </div>
+  <div id="questionList"></div>
+
+  <script>
+    const questionListDiv = document.getElementById("questionList");
+
+    // Function to fetch questions
+    const fetchQuestions = async () => {
+      const difficulty = document.getElementById("difficultyInput").value;
+
+      try {
+        const response = await fetch(`http://localhost:5000/api/questions?difficulty=${difficulty}`);
+        const data = await response.json();
+        displayQuestions(data);
+      } catch (error) {
+        console.error('Error fetching questions:', error);
+      }
+    };
+
+    // Function to display questions in the DOM
+    const displayQuestions = (questions) => {
+      questionListDiv.innerHTML = ''; // Clear previous content
+
+      const questionList = document.createElement('ul');
+      questions.forEach((q, index) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${index + 1}. ${q.subject} - ${q.question} - ${q.difficulty} - Marks: ${q.marks}`;
+        questionList.appendChild(listItem);
+      });
+      questionListDiv.appendChild(questionList);
+    };
+  </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Question Paper Generator</title>
+</head>
+<body>
+  <h1>Question Paper Generator</h1>
+  <div>
+    <label for="totalMarks">Total Marks:</label>
+    <input type="number" id="totalMarks"><br><br>
+    <label for="easyPercentage">Easy (%)</label>
+    <input type="number" id="easyPercentage"><br>
+    <label for="mediumPercentage">Medium (%)</label>
+    <input type="number" id="mediumPercentage"><br>
+    <label for="hardPercentage">Hard (%)</label>
+    <input type="number" id="hardPercentage"><br>
+    <button onclick="generateQuestionPaper()">Generate Question Paper</button>
+  </div>
+  <div id="questionList"></div>
+
+  <script>
+    const questionListDiv = document.getElementById("questionList");
+
+    // Function to generate question paper
+    const generateQuestionPaper = async () => {
+      const totalMarks = parseInt(document.getElementById("totalMarks").value);
+      const easyPercentage = parseInt(document.getElementById("easyPercentage").value) / 100;
+      const mediumPercentage = parseInt(document.getElementById("mediumPercentage").value) / 100;
+      const hardPercentage = parseInt(document.getElementById("hardPercentage").value) / 100;
+
+      try {
+        const response = await fetch(`http://localhost:5000/api/questions?totalMarks=${totalMarks}&easyPercentage=${easyPercentage}&mediumPercentage=${mediumPercentage}&hardPercentage=${hardPercentage}`);
+        const data = await response.json();
+        displayQuestions(data);
+      } catch (error) {
+        console.error('Error generating question paper:', error);
+      }
+    };
+
+    // Function to display questions in the DOM
+    const displayQuestions = (questions) => {
+      questionListDiv.innerHTML = ''; // Clear previous content
+      console.log(questions)
+      const questionList = document.createElement('ul');
+      questions.forEach((q, index) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${index + 1}. ${q.subject} - ${q.question} - ${q.difficulty} - Marks: ${q.marks}`;
+        questionList.appendChild(listItem);
+      });
+      questionListDiv.appendChild(questionList);
+    };
+  </script>
+</body>
+</html>

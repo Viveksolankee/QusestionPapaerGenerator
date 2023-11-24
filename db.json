@@ -1,0 +1,59 @@
+[
+    {
+      "question": "What is the speed of light?",
+      "subject": "Physics",
+      "topic": "Waves",
+      "difficulty": "Easy",
+      "marks": 5
+    },
+    {
+      "question": "Describe Newton's laws of motion.",
+      "subject": "Physics",
+      "topic": "Mechanics",
+      "difficulty": "Medium",
+      "marks": 10
+    },
+    {
+      "question": "Solve for x: 2x + 5 = 15.",
+      "subject": "Mathematics",
+      "topic": "Algebra",
+      "difficulty": "Hard",
+      "marks": 15
+    },
+    {
+      "question": "What is the capital of France?",
+      "subject": "General Knowledge",
+      "topic": "Geography",
+      "difficulty": "Easy",
+      "marks": 5
+    },
+    {
+      "question": "What is the chemical formula for water?",
+      "subject": "Chemistry",
+      "topic": "Elements",
+      "difficulty": "Medium",
+      "marks": 10
+    },
+    {
+      "question": "Solve the quadratic equation: x^2 - 4x + 4 = 0.",
+      "subject": "Mathematics",
+      "topic": "Algebra",
+      "difficulty": "Medium",
+      "marks": 10
+    },
+    {
+      "question": "Explain the process of photosynthesis.",
+      "subject": "Biology",
+      "topic": "Plants",
+      "difficulty": "Hard",
+      "marks": 15
+    },
+    {
+      "question": "Who wrote 'Romeo and Juliet'?",
+      "subject": "Literature",
+      "topic": "Drama",
+      "difficulty": "Easy",
+      "marks": 5
+    }
+  ]
+  
